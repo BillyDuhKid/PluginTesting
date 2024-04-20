@@ -1,0 +1,9 @@
+.vs\
+Packaged\
+Binaries\
+Intermediate\
+Saved\
+Plugins\TAB_Game\Binaries\
+Plugins\TAB_Game\Intermediate\
+.vsconfig
+PluginTesting.sln
