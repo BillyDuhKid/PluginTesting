@@ -75,4 +75,4 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 
 # Exclude plug-in has it's own GitHub
-Plugins/TAB_Game/*
+Plugins/TAB_Game/
