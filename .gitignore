@@ -74,5 +74,8 @@ Plugins/*/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 
+# Exclude packaged builds folder
+Packaged/
+
 # Exclude plug-in has it's own GitHub
 Plugins/TAB_Game/
