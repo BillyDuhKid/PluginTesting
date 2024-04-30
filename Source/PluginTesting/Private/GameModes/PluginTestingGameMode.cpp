@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "PluginTestingGameMode.h"
-#include "PluginTestingCharacter.h"
+#include "GameModes/PluginTestingGameMode.h"
+#include "Player/PluginTestingCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
 APluginTestingGameMode::APluginTestingGameMode()

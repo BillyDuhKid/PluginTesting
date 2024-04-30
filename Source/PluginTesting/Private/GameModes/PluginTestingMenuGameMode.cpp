@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "PluginTestingMenuGameMode.h"
+#include "GameModes/PluginTestingMenuGameMode.h"
 #include "DebugDeveloperSettings.h"
 #include "GameInstanceSubsystems/TAB_GameCreatorSubsystem.h"
 
