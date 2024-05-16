@@ -1,6 +1,14 @@
 Running notes at least until Source Control is added and cleanup is made on the plugin
 
 
+Common UI 2024-05-04
+UI/Data/ControllerData are good to keep in editor BPs for ease of editing buttons etc.
+UI/Styling BPs should stay there.
+Other classes appear pretty simple to convert to C++
+
+
+
+
 
 Probable Temp Changes:
 none.
