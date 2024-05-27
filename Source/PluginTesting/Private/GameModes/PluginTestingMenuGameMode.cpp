@@ -27,8 +27,11 @@ void APluginTestingMenuGameMode::BeginPlay()
 			TArray <FGameMapStruct> LobbyMaps{ FGameMapStruct(FText::FromString("Default Map"), "/TAB_Game/Maps/EXAMPLE_Lobby") };
 		*/
 
+		//TODO: Should be a better place to set these game specific set once values.
 		TArray<FGameModeStruct> GameModes{ FGameModeStruct("PluginTestingGameMode", 2, { FGameMapStruct(FText::FromString("Plugin Testing Map"), "/Game/ThirdPerson/Maps/ThirdPersonMap") }) };
 		GameCreator->SetGameModes(GameModes);
+		TArray <FGameMapStruct> MainMenuMaps{ FGameMapStruct(FText::FromString("Main Menu Map"), "/Game/Maps/GameStartupMap") };
+		GameCreator->SetMainMenuMaps(MainMenuMaps);
 	}
 
 	Super::BeginPlay();
