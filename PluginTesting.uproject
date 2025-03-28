@@ -18,10 +18,6 @@
     {
       "Name": "CommonUI",
       "Enabled": true
-    },
-    {
-      "Name": "VisualStudioTools",
-      "Enabled": true
     }
   ],
   "TargetPlatforms": [],

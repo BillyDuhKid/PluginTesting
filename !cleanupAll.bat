@@ -7,8 +7,6 @@ del /s *.sln
 cd Plugins\TAB_Game\
 call !cleanup.bat
 cd /d "%~dp0"
-cd Plugins\VisualStudioTools\
-call !cleanup.bat
-cd /d "%~dp0"
+
 
 
