@@ -8,7 +8,6 @@ public class PluginTesting : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		//TODO: Remove CommonLoadingScreen when a version of it can be integrated to TAB_Game.
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "DeveloperSettings", "TAB_Game", "CommonLoadingScreen" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "DeveloperSettings", "TAB_Game" });
 	}
 }
