@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "PluginTesting.sln",
+    "projects": [
+      "Intermediate\\ProjectFiles\\PluginTesting.vcxproj"
+    ]
+  }
+}

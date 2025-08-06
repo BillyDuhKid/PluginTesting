@@ -23,8 +23,8 @@ public:
 public:
 	
 	// The widget to load for the loading screen.
-	//UPROPERTY(config, EditAnywhere, Category=Display, meta=(MetaClass="/Script/UMG.UserWidget"))
-	//FSoftClassPath LoadingScreenWidget;
+	UPROPERTY(config, EditAnywhere, Category=Display, meta=(MetaClass="/Script/UMG.UserWidget"))
+	FSoftClassPath LoadingScreenWidget;
 
 	// The z-order of the loading screen widget in the viewport stack
 	UPROPERTY(config, EditAnywhere, Category=Display)

@@ -125,27 +125,6 @@ public:
 //////////////////////////////////////////////////////////////////////
 // ULoadingScreenManager
 
-
-
-
-
-
-
-ULoadingScreenManager::ULoadingScreenManager()
-    : Super()
-{
-	static ConstructorHelpers::FClassFinder<UUserWidget> LoadingScreenClassFinder(GetLoadingScreenPath());
-	if (LoadingScreenClassFinder.Class != NULL)
-	{
-		LoadingScreenWBPClass = LoadingScreenClassFinder.Class;
-	}
-}
-
-
-
-
-
-
 void ULoadingScreenManager::Initialize(FSubsystemCollectionBase& Collection)
 {
 	FCoreUObjectDelegates::PreLoadMapWithContext.AddUObject(this, &ThisClass::HandlePreLoadMap);
@@ -530,14 +509,14 @@ void ULoadingScreenManager::ShowLoadingScreen()
 		LoadingScreenVisibilityChanged.Broadcast(/*bIsVisible=*/ true);
 
 		// Create the loading screen widget
-//		TSubclassOf<UUserWidget> LoadingScreenWidgetClass = Settings->LoadingScreenWidget.TryLoadClass<UUserWidget>();
-		if (UUserWidget* UserWidget = UUserWidget::CreateWidgetInstance(*LocalGameInstance, LoadingScreenWBPClass, NAME_None))
+		TSubclassOf<UUserWidget> LoadingScreenWidgetClass = Settings->LoadingScreenWidget.TryLoadClass<UUserWidget>();
+		if (UUserWidget* UserWidget = UUserWidget::CreateWidgetInstance(*LocalGameInstance, LoadingScreenWidgetClass, NAME_None))
 		{
 			LoadingScreenWidget = UserWidget->TakeWidget();
 		}
 		else
 		{
-			UE_LOG(LogLoadingScreen, Error, TEXT("Failed to load the loading screen widget %s, falling back to placeholder."), GetLoadingScreenPath());
+			UE_LOG(LogLoadingScreen, Error, TEXT("Failed to load the loading screen widget %s, falling back to placeholder."), *Settings->LoadingScreenWidget.ToString());
 			LoadingScreenWidget = SNew(SThrobber);
 		}
 
