@@ -1,3 +1,91 @@
+
+Removed option that does work:
+
+
+	- [OPTIONAL] Create a new class extending DeveloperSettings.
+		Example header file adding quick utility debug options:
+--------------------------------------------------------------------------------------------------------------------------------------------------
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Engine/DeveloperSettings.h"
+#include "DebugDeveloperSettings.generated.h"
+
+/**
+ *	Debug Options added to make testing the TAB_Game plugin faster and easier.
+ */
+UCLASS(Config = Game, Defaultconfig, meta = (DisplayName = "DEBUG Plugin Testing Options"))
+class PLUGINTESTING_API UDebugDeveloperSettings : public UDeveloperSettings
+{
+	GENERATED_BODY()
+	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Config, Category = "DEBUG Plugin Testing Options")
+	bool bDebugOverrideGameModes{ true };
+
+	UDebugDeveloperSettings();
+};
+--------------------------------------------------------------------------------------------------------------------------------------------------
+		Example cpp file:
+--------------------------------------------------------------------------------------------------------------------------------------------------
+#include "DebugDeveloperSettings.h"
+#include "PluginTesting.h"
+
+UDebugDeveloperSettings::UDebugDeveloperSettings()
+{
+	// get needed settings from .ini file here.
+	const UDebugDeveloperSettings* DebugSettings = GetDefault<UDebugDeveloperSettings>();
+	if (DebugSettings == nullptr)
+	{
+		return;
+	}
+
+	bDebugOverrideGameModes = DebugSettings->bDebugOverrideGameModes;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Example of using this option:
+--------------------------------------------------------------------------------------------------------------------------------------------------
+#include "GameModes/PluginTestingMenuGameMode.h"
+#include "DebugDeveloperSettings.h"
+#include "GameInstanceSubsystems/TAB_GameCreatorSubsystem.h"
+
+void APluginTestingMenuGameMode::BeginPlay()
+{
+	// Override GameModes for PluginTesting Game. controlled by in Editor Debug Options for faster testing. //TODO: There maybe a better place to set these options.
+	UDebugDeveloperSettings* DebugSettings = GetMutableDefault<UDebugDeveloperSettings>();
+	if (DebugSettings == nullptr) { return; }
+
+	if (DebugSettings->bDebugOverrideGameModes)
+	{
+		// get GameCreator.
+		UTAB_GameCreatorSubsystem* GameCreator = GetWorld()->GetGameInstance()->GetSubsystem<UTAB_GameCreatorSubsystem>();
+		if (GameCreator == nullptr)
+		{
+			return;
+		}
+
+		/*	
+			GameInstanceSubsystems/TAB_GameCreatorSubsystem.h
+			void SetGameModes(const TArray<FGameModeStruct>&inGameModes);
+			void SetLobbyGameModes(const TArray<FGameMapStruct>&inLobbyMaps);
+			TArray<FGameModeStruct> GameModes{ FGameModeStruct("TAB_Unique678", 2, { FGameMapStruct(FText::FromString("Default Map"), "/TAB_Game/Maps/EXAMPLE_InGame") }) };
+			TArray <FGameMapStruct> LobbyMaps{ FGameMapStruct(FText::FromString("Default Map"), "/TAB_Game/Maps/EXAMPLE_Lobby") };
+		*/
+
+		//TODO: Should be a better place to set these game specific set once values.
+		TArray<FGameModeStruct> GameModes{ FGameModeStruct("PluginTestingGameMode", 2, { FGameMapStruct(FText::FromString("Plugin Testing Map"), "/Game/ThirdPerson/Maps/ThirdPersonMap") }) };
+		GameCreator->SetGameModes(GameModes);
+		TArray <FGameMapStruct> MainMenuMaps{ FGameMapStruct(FText::FromString("Main Menu Map"), "/Game/Maps/GameStartupMap") };
+		GameCreator->SetMainMenuMaps(MainMenuMaps);
+	}
+
+	Super::BeginPlay();
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 	//WORKING:
 // https://youtu.be/p_biHD6QZvA?si=yp2K8IbN7pLf59SB
 // probably convert return value to an int32 clicked index.
