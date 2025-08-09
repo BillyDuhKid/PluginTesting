@@ -18,7 +18,8 @@ public class PluginTesting : ModuleRules
 			"StateTreeModule",
 			"GameplayStateTreeModule",
 			"UMG",
-			"TAB_Game"
+			"TAB_Game",
+			"CommonLoadingScreen"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });

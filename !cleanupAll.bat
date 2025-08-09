@@ -13,8 +13,8 @@ REM Below are plugins from Lyra, ideally can be updated as Lyra updates for new 
 REM rmdir /s /q Plugins\CommonGame\Binaries
 REM rmdir /s /q Plugins\CommonGame\Intermediate
 
-REM rmdir /s /q Plugins\CommonLoadingScreen\Binaries
-REM rmdir /s /q Plugins\CommonLoadingScreen\Intermediate
+rmdir /s /q Plugins\CommonLoadingScreen\Binaries
+rmdir /s /q Plugins\CommonLoadingScreen\Intermediate
 
 REM rmdir /s /q Plugins\CommonUser\Binaries
 REM rmdir /s /q Plugins\CommonUser\Intermediate
