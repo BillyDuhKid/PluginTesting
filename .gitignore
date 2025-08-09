@@ -77,5 +77,7 @@ DerivedDataCache/*
 # Exclude packaged builds folder
 Packaged/
 
-# Exclude plug-in has it's own GitHub
+# Exclude plug-in that have thier own GitHub
 Plugins/TAB_Game/
+Plugins/CommonLoadingScreen/
+Plugins/*.*
