@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameModes/TAB_MenuGameMode.h"
+#include "Game/TAB_MenuGameMode.h"
 #include "PluginTestingMenuGameMode.generated.h"
 
 /**
