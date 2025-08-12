@@ -78,6 +78,4 @@ DerivedDataCache/*
 Packaged/
 
 # Exclude plug-in that have thier own GitHub
-Plugins/TAB_Game/
-Plugins/CommonLoadingScreen/
 Plugins/
