@@ -2,7 +2,7 @@
 
 
 #include "PluginTestingMenuGameMode.h"
-#include "GameInstanceSubsystems/TAB_GameCreatorSubsystem.h"
+#include "Subsystems/TAB_GameCreatorSubsystem.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(PluginTestingMenuGameMode)
 
