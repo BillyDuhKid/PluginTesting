@@ -1,4 +1,31 @@
 
+Video: Has an Input Mapping Context setup with IA_UI_Accept, IA_UI_Back, AU_UI_TabLeft, etc. his shows a InputMappingContext, mine is in a CommonInputActionDataBase.
+
+Checked Enable Enhanced Input Support in Project Settings, Common Input Settings.
+
+Turning on Enhanced input added additional options to the Common UI Input Data table, creating and adding those IA however stopped backing out of the Settings screen from working.
+
+create a Common Bound Action Button
+
+- Horizontal box
+	- Input Actions Icon
+	- Common Text
+
+9:10 add button style
+
+in the Common Bound Action Button, under the action checked Display in Action Bar.
+
+
+Not following along yet:
+Turn on Auto Activate.
+Turn on Back Handler and Back Handler Displayed in Action Bar.	<- what was missing.
+
+Note: each screen has it's own Input Mapping?
+
+
+
+
+
 Removed option that does work:
 
 
